@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Team</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming your CSS file is named styles.css -->
+
+    <script>
+        // Function to load header and footer
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("header.html")
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector("#header").innerHTML = data;
+            });
+
+            fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+                document.querySelector("#footer").innerHTML = data;
+            });
+        });
+    </script>
+
+    <style>
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .team-member {
+            flex: 1 1 300px;
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            background-image: url('images/Dessert.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: fixed; 
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .team-member img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .team-member h2 {
+            margin-bottom: 5px;
+        }
+
+        .team-member p {
+            margin-bottom: 10px;
+        }
+
+        #footer {
+            padding: 15px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            position: fixed; 
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Placeholder for Header -->
+    <div id="header"></div>
+
+    <main>
+        <div class="team-container">
+            <div class="team-member">
+                <img src="images/sonu.jpeg" alt="Team Member 1">
+                <h2>Sonu Kanna</h2>
+                <p>Sonu is the driving force behind our application. With a deep understanding of both technical and operational aspects of software development, he orchestrates the team's efforts, ensuring projects are completed on time and with the highest quality. His strategic planning and problem-solving skills create a collaborative environment where innovation thrives.</p>
+            </div>
+    
+            <div class="team-member">
+                <img src="images/pranathi.jpeg" alt="Team Member 2">
+                <h2>Pranathi</h2>
+                <p>Pranathi is responsible for designing the form and page layouts that guide the user experience. Her commitment to intuitive design and visual harmony has resulted in a seamless and engaging application interface. Pranathi's meticulous approach and creativity have played a key role in delivering a professional and user-friendly platform.</p>
+            </div>
+    
+            <div class="team-member">
+                <img src="images/mani.jpeg" alt="Team Member 3">
+                <h2>Yashwanth</h2>
+                <p>Yashwanth oversaw the comprehensive testing to ensure our application's seamless operation. As the data model designer, he created a robust structure to support optimal performance and scalability. His expertise in quality assurance and attention to detail were crucial in resolving critical issues, leading to a reliable and efficient final product.</p>
+            </div>
+    
+            <div class="team-member">
+                <img src="images/nikhil.jpeg" alt="Team Member 4">
+                <h2>Nikhil</h2>
+                <p>Nikhil is in charge of implementing JavaScript functionality and ensuring the overall styling consistency of the application. His deep understanding of front-end technologies contributes to a smooth and responsive user experience. Nikhil's expertise in both code and design guarantees a cohesive and visually appealing interface.</p>
+            </div>
+        </div>
+    </main>
+    
+
+    <!-- Placeholder for Footer -->
+    <div id="footer"></div>
+</body>
+
+</html>
