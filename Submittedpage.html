@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Our Team</title>
+        <link rel="stylesheet" href="styles.css"> <!-- Assuming your CSS file is named styles.css -->
+    
+        <script>
+            // Function to load header and footer
+            document.addEventListener("DOMContentLoaded", function () {
+                fetch("header.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector("#header").innerHTML = data;
+                    });
+    
+                fetch("footer.html")
+                    .then(response => response.text())
+                    .then(data => {
+                        document.querySelector("#footer").innerHTML = data;
+                    });
+            });
+        </script>
+    
+        <style>
+            /* Your CSS styles here */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+            }
+    
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+    
+            th {
+                background-color: #f2f2f2;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Placehlder for header-->
+        <div id="header"></div>
+        <!-- Submission Confirmation Content -->
+        <div class="container">
+            <h2>Submission Confirmation</h2>
+            <p>Your details have been recorded. Once the itinerary details are ready, they will be sent out to you through email and will be available on the website.</p>
+            <p class="message">Thank you for your submission!</p>
+        </div>
+         <!--Placehlder for footer-->
+         <div id="footer"></div>
+
+    </body>
+    </html> 
