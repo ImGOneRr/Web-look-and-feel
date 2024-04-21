@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang ="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Our Team</title>
+        <link rel="stylesheet" href="css/style.css"> <!-- Assuming your CSS file is named styles.css -->
+
+        <script>
+            // Function to load header and footer
+            document.addEventListener("DOMContentLoaded", function() {
+                fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    document.querySelector("#header").innerHTML = data;
+                });
+    
+                fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector("#footer").innerHTML = data;
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <!-- Placeholder for Header -->
+        <div id="header"></div>
+        <!-- Main Content -->
+   <!-- Main Content -->
+   <div class="main-content">
+    <!-- Your main content goes here -->    
+    <main>
+        <div class="trip">
+            <h2>Backpacking/Solo Trips</h2>
+            <p>Embark on a solo adventure or join a small group of fellow travelers for an unforgettable backpacking experience.</p>
+            <img src="images/backpacking.png" alt="Solo Trip" height="260px" width="330px">
+        </div>
+    
+        <div class="trip">
+            <h2>Group Trips</h2>
+            <p>Travel with friends, family, or other like-minded individuals on a group trip designed to maximize fun and exploration.</p>
+            <img src="images/GroupTravel.jpeg" alt="Group Trip" height="260px" width="330px">
+        </div>
+    </main>
+    
+</div>
+
+           
+
+    
+        <!-- Placeholder for Footer -->
+        <div id="footer"></div>
+    
+    </body>
+    </html>
