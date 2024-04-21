@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel Booking Form</title>
     <style>
+
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
+            background-image: url('images/Dessert.jpg'); /* Update with your actual image URL */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Do not repeat the image */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
-            text-align: center;
-            color: #333;
+            color: #377;
         }
 
         form {
+            width: 90%; /* Responsive width */
             max-width: 600px;
-            margin: 0 auto;
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
         }
 
         label {
@@ -35,25 +47,64 @@
         input[type="email"],
         input[type="number"],
         input[type="date"],
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 8px;
             margin-bottom: 16px;
             border: 1px solid #ccc;
-            border-radius: 4px;
+            border-radius: 10PX;
         }
 
-        input[type="submit"] {
+        input[type="submit"],
+        button {
             background-color: #4CAF50;
             color: white;
             border: none;
             padding: 10px 20px;
             border-radius: 4px;
             cursor: pointer;
+            width: 100%;
         }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
+            input[type="submit"]:hover,
+            button:hover {
+                background-color: #45a049;
+            }
+
+        #b { /* Specific style for the 'Add' button */
+            background-color: #424548; /* Blue color for the 'Add' button */
+        }
+
+            #b:hover {
+                background-color: #bbc0c5; /* Darker blue when hovered */
+            }
+
+        table {
+            width: 90%; /* Responsive width */
+            max-width: 800px;
+            border-collapse: collapse;
+            margin: 20px auto; /* Center table horizontally */
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #header, #footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
         }
 
         /* Placeholder images */
@@ -68,6 +119,21 @@
         }
     </style>
     <script>
+        // Function to load header and footer
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector("#header").innerHTML = data;
+                });
+
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector("#footer").innerHTML = data;
+                });
+        });
+
         var rowsAdded = false; // Flag to track if rows have been added to the table
 
         function calculateEndDate() {
@@ -129,16 +195,16 @@
             cell7.innerHTML = budget;
             cell8.innerHTML = numPeople;
 
-            
+
             // Create delete button
-var deleteButton = document.createElement("button");
-deleteButton.innerHTML = "Delete";
-deleteButton.style.backgroundColor = "red";
-deleteButton.onclick = function() {
-    var row = this.parentNode.parentNode; // Get the parent row of the button
-    row.parentNode.removeChild(row); // Remove the row
-};
-cell9.appendChild(deleteButton); // Add delete button to cell
+            var deleteButton = document.createElement("button");
+            deleteButton.innerHTML = "Delete";
+            deleteButton.style.backgroundColor = "red";
+            deleteButton.onclick = function () {
+                var row = this.parentNode.parentNode; // Get the parent row of the button
+                row.parentNode.removeChild(row); // Remove the row
+            };
+            cell9.appendChild(deleteButton); // Add delete button to cell
             // Clear form fields after adding to the table
             document.getElementById("bookingForm").reset();
         }
@@ -156,41 +222,46 @@ cell9.appendChild(deleteButton); // Add delete button to cell
 </head>
 
 <body>
-    <h1>Travel Booking Form</h1>
-    <form id="bookingForm">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" required><br><br>
+    <div id="header"></div>
+    <!-- Main Content -->
+    <div>
+        <form id="bookingForm">
+            <h1>Travel Booking Form</h1> <!-- Moved the title inside the form -->
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required><br><br>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br><br>
 
-        <label for="destination">Destination:</label>
-        <input type="text" id="destination" name="destination" required><br><br>
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br><br>
 
-        <label for="startDate">Start Date:</label>
-        <input type="date" id="startDate" name="startDate" onchange="calculateEndDate()" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
 
-        <label for="endDate">End Date:</label>
-        <input type="date" id="endDate" name="endDate" required><br><br>
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required><br><br>
 
-        <label for="budget">Budget for Itinerary:</label>
-        <input type="number" id="budget" name="budget" min="0" step="100" required><br><br>
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" name="startDate" onchange="calculateEndDate()" required><br><br>
 
-        <label for="numPeople">Number of People:</label>
-        <input type="number" id="numPeople" name="numPeople" min="1" required><br><br>
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" name="endDate" required><br><br>
 
-        <label for="specialRequests">Special Requests:</label><br>
-        <textarea id="specialRequests" name="specialRequests" rows="4" cols="50"></textarea><br><br>
+            <label for="budget">Budget for Itinerary:</label>
+            <input type="number" id="budget" name="budget" min="0" step="100" required><br><br>
 
-        <button type="button" onclick="addToTable()" id="b" class="b">ADD</button>
-        <input type="submit" value="Submit" onclick="redirectToNewPage()">
-    </form>
+            <label for="numPeople">Number of People:</label>
+            <input type="number" id="numPeople" name="numPeople" min="1" required><br><br>
 
-    <table border="2px" class="t1">
-        <thead>
+            <label for="specialRequests">Special Requests:</label><br>
+            <textarea id="specialRequests" name="specialRequests" rows="4" cols="50"></textarea><br><br>
+
+            <button type="button" onclick="addToTable()" id="b" class="b">ADD</button>
+            <input type="submit" value="Submit" onclick="redirectToNewPage()">
+        </form>
+
+        <table border="2px" class="t1">
+            <thead>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
@@ -199,9 +270,13 @@ cell9.appendChild(deleteButton); // Add delete button to cell
             <th>End Date</th>
             <th>Budget</th>
             <th>Number of People</th>
-        </thead>
-        <!-- Table body will be populated dynamically -->
-    </table>
+            </thead>
+            <!-- Table body will be populated dynamically -->
+        </table>
+
+    </div>
+    <div id="footer"></div>
+
 </body>
 
 </html>
