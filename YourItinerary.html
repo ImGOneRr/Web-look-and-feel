@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Our Team</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Assuming your CSS file is named styles.css -->
+
+    <script>
+        // Function to load header and footer
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("header.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector("#header").innerHTML = data;
+                });
+
+            fetch("footer.html")
+                .then(response => response.text())
+                .then(data => {
+                    document.querySelector("#footer").innerHTML = data;
+                });
+        });
+    </script>
+
+    <style>
+        /* Your CSS styles here */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Placeholder for Header -->
+    <div id="header"></div>
+    <!-- Main Content -->
+    <div class="f1">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Days of Travel</th>
+                    <th>Season</th>
+                    <th>Budget</th>
+                    <th>Mode of Transport</th>
+                    <th>Group or Individual</th>
+                    <th>Itinerary PDF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Sample row -->
+                <tr>
+                    <td>Paris, France</td>
+                    <td>5</td>
+                    <td>Spring</td>
+                    <td>$2000</td>
+                    <td>Train</td>
+                    <td>Individual</td>
+                    <td><button><a href="pdf/5-day_Paris.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <!-- Additional rows -->
+                <tr>
+                    <td>London, UK</td>
+                    <td>7</td>
+                    <td>Summer</td>
+                    <td>$2500</td>
+                    <td>Flight</td>
+                    <td>Group</td>
+                    <td><button><a href="pdf/London-UK-tour.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <tr>
+                    <td>Tokyo, Japan</td>
+                    <td>10</td>
+                    <td>Fall</td>
+                    <td>$3000</td>
+                    <td>Subway</td>
+                    <td>Individual</td>
+                    <td><button><a href="pdf/Tokyo.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <tr>
+                    <td>Miami, USA</td>
+                    <td>5</td>
+                    <td>Winter</td>
+                    <td>$1500</td>
+                    <td>Bus</td>
+                    <td>Group</td>
+                    <td><button><a href="pdf/Miami.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <tr>
+                    <td>Sydney, Australia</td>
+                    <td>8</td>
+                    <td>Spring</td>
+                    <td>$2800</td>
+                    <td>Ferry</td>
+                    <td>Individual</td>
+                    <td><button><a href="pdf/sydney.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <tr>
+                    <td>Rome, Italy</td>
+                    <td>11</td>
+                    <td>Summer</td>
+                    <td>$3200</td>
+                    <td>Train</td>
+                    <td>Group</td>
+                    <td><button><a href="pdf/Italy.pdf" target="_blank">Download</a></button></td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Placeholder for Footer -->
+    <div id="footer"></div>
+</body>
+
+</html>
