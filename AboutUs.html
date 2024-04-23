@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Our Team</title>
     <link rel="stylesheet" href="styles.css"> <!-- Assuming your CSS file is named styles.css -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js -->
 
     <script>
+
         // Function to load header and footer
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             fetch("header.html")
                 .then(response => response.text())
                 .then(data => {
@@ -25,6 +27,24 @@
     </script>
 
     <style>
+
+        .chart-table {
+            width: 100%; /* Full table width */
+            border-collapse: collapse; /* Remove gaps between cells */
+        }
+        .chart-cell {
+            text-align: center; /* Center the content horizontally */
+            vertical-align: top; /* Align content at the top */
+            padding: 10px; /* Spacing around the charts */
+        }
+        .chart-container {
+            width: 400px; 
+            height: 300px; 
+            margin: 20px auto; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #ccc;
+        }
         .team-container {
             display: flex;
             flex-wrap: wrap;
@@ -83,22 +103,22 @@
             text-align: center;
         }
 
-            .team-member img {
-                max-width: 150px;
-                border-radius: 50%;
-                margin-bottom: 10px;
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-            }
+        .team-member img {
+            max-width: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-            .team-member h2 {
-                margin-bottom: 5px;
-            }
+        .team-member h2 {
+            margin-bottom: 5px;
+        }
 
-            .team-member p {
-                margin-bottom: 10px;
-            }
+        .team-member p {
+            margin-bottom: 10px;
+        }
 
         #footer {
             padding: 15px;
@@ -118,7 +138,7 @@
         }
 
         .h {
-            color: blue;
+            color: rgb(95, 130, 161);
         }
 
         .model {
@@ -129,6 +149,7 @@
             width: 1060px;
             margin-bottom: 15px;
         }
+
     </style>
 </head>
 
@@ -167,23 +188,49 @@
             <img src="images/data_model.jpg" height="600px" width="800px">
 
         </div>
+       
+    </div>
+    <div>
+        <table class="chart-table"> <!-- Use a table to arrange charts -->
+            <tr>
+                <td class="chart-cell"> <!-- First chart cell -->
+                    <div class="chart-container">
+                        <canvas id="itineraryChart"></canvas> <!-- First chart canvas -->
+                    </div>
+                </td>
+                
+            </tr>
+        </table>
+    </div>
+    
+
+    <!-- Include the custom JavaScript file -->
+
+    <!-- Include the JavaScript file -->
+    <script src="charts.js"></script>    
 
         <div class="team-work">
             <h1>Contributions</h1>
-            <p>Our team has worked diligently on various facets of the Itinerary Website. Below are some snapshots of our contributions, showcasing the diversity and depth of our work:</p>
+            <div style="text-align: center; width: 100%;">
+                <p style="max-width: 650px; margin: auto;">
+                  Our team has worked diligently on various facets of the Itinerary Website. Below are some snapshots of our contributions, showcasing the diversity 
+                  and depth of our work.
+                </p>
+              </div>
             <h1 class="h">NIKHIL KACHAM</h1>
-            <img src="images/NIKHILSCREENSHOT.png" alt="error" height="600px" width="800px">
-
+            <img src="images/NIKHILSCREENSHOT.png" alt="" height="250px" width="785px">
+            
             <h1 class="h">SONU KANNA </h1>
-            <img src="images/SONUSCREENSHOT.png" alt="" height="600px" width="800px">
+            <img src="images/SONUSCREENSHOT.png" alt="" height="250px" width="975px">
             <h1 class="h">MANI KANTA YASWANTH JALAGADUGU</h1>
-            <img src="images/MANISCREENSHOT.png" alt="" height="600px" width="800px">
-            <h1 class="h">PRNATHI CHEEMARLA</h1>
+            <img src="images/MANISCREENSHOT.png" alt="" height="250px" width="1020px">
+            <h1 class="h">PRANATHI CHEEMARLA</h1>
             <img src="images/pranathi_work.png" alt="" height="600px" width="800px">
 
         </div>
+        
     </main>
-
+    
     <!-- Placeholder for Footer -->
     <div id="footer"></div>
 </body>
